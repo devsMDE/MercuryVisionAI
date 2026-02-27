@@ -1,0 +1,138 @@
+{
+    "users": [
+        {
+            "uid": "iHLaSkiz36gCuWiZd0KSQ1CvBXn2",
+            "email": "mavenai26@gmail.com",
+            "username": "MavenAI",
+            "plan": "pro",
+            "credits_used": 0,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 08:30:56",
+            "updated_at": "2026-02-22 10:56:45"
+        },
+        {
+            "uid": "dqetib8wV1hC0gracUg1ZH749213",
+            "email": "neurobellls@gmail.com",
+            "username": "Neuro Bellls",
+            "plan": "pro",
+            "credits_used": 0,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 08:44:27",
+            "updated_at": "2026-02-22 10:56:41"
+        },
+        {
+            "uid": "kJsGaAcrU0PmmpkKoqZp0D4pBdE2",
+            "email": "tem4ik20201223@gmail.com",
+            "username": "NeuroBellls",
+            "plan": "pro",
+            "credits_used": 0,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 10:44:11",
+            "updated_at": "2026-02-22 10:56:43"
+        },
+        {
+            "uid": "bnkZKyTIfSWoowKnAP90iqCoZvG2",
+            "email": "dosymzhanmakhmudov@gmail.com",
+            "username": "dosymzhanmakhmudov",
+            "plan": "pro",
+            "credits_used": 0,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 10:49:01",
+            "updated_at": "2026-02-22 10:56:39"
+        },
+        {
+            "uid": "uy8ROmR567VfgLuoKxPu4MCkiCy1",
+            "email": "dosyzhanmakhmudov@mail.ru",
+            "username": "Dosymzhan",
+            "plan": "pro",
+            "credits_used": 30,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 10:57:47",
+            "updated_at": "2026-02-23 18:43:00"
+        },
+        {
+            "uid": "z0yqusg8GDQJBEwXaVqJbrA37nK2",
+            "email": "test@example.com",
+            "username": "testuser",
+            "plan": "enterprise",
+            "credits_used": 40,
+            "credits_total": 0,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-22",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-22 16:25:57",
+            "updated_at": "2026-02-23 17:52:04"
+        },
+        {
+            "uid": "wVSXUaT3l4Y8pSfKrSNEOphaOZ93",
+            "email": "astana980622@gmail.com",
+            "username": "Досымжан Махмудов",
+            "plan": "free",
+            "credits_used": 45,
+            "credits_total": 5000,
+            "requests_today": 0,
+            "requests_month": 0,
+            "last_reset_day": "2026-02-27",
+            "last_reset_month": "2026-02",
+            "created_at": "2026-02-27 11:26:56",
+            "updated_at": "2026-02-27 14:44:28"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "uid": "uy8ROmR567VfgLuoKxPu4MCkiCy1",
+            "name": "Water Analysis",
+            "description": "Generated on 23.02.2026, 23:43:00",
+            "created_at": "2026-02-23 18:43:00",
+            "updated_at": "2026-02-23 18:43:00"
+        },
+        {
+            "id": 2,
+            "uid": "wVSXUaT3l4Y8pSfKrSNEOphaOZ93",
+            "name": "Compare Analysis",
+            "description": "Generated on 27.02.2026, 16:27:18",
+            "created_at": "2026-02-27 11:27:18",
+            "updated_at": "2026-02-27 11:27:18"
+        },
+        {
+            "id": 3,
+            "uid": "wVSXUaT3l4Y8pSfKrSNEOphaOZ93",
+            "name": "Compare Analysis",
+            "description": "Generated on 27.02.2026, 16:30:53",
+            "created_at": "2026-02-27 11:30:53",
+            "updated_at": "2026-02-27 11:30:53"
+        },
+        {
+            "id": 4,
+            "uid": "wVSXUaT3l4Y8pSfKrSNEOphaOZ93",
+            "name": "Compare Analysis",
+            "description": "Generated on 27.02.2026, 18:10:38",
+            "created_at": "2026-02-27 13:10:38",
+            "updated_at": "2026-02-27 13:10:38"
+        }
+    ],
+    "analyses": [],
+    "messages": []
+}
