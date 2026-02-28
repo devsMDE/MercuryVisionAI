@@ -5,11 +5,11 @@
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge"/>
 </p>
 
-# 🛰️ MercuryVision Studio
+# 🛰️ Mercury Vision
 
 **Enterprise AI platform for satellite imagery change detection and environmental intelligence.**
 
-MercuryVision Studio transforms raw satellite imagery into strategic environmental insights using state-of-the-art deep learning. The platform combines the **ChangeFormer** transformer-based change detection model with **GPT-4o / Gemini** AI analysis to provide automated environmental monitoring, risk assessment, and decision support.
+Mercury Vision transforms raw satellite imagery into strategic environmental insights using state-of-the-art deep learning. The platform combines the **ChangeFormer** transformer-based change detection model with **GPT-4o / Gemini** AI analysis to provide automated environmental monitoring, risk assessment, and decision support.
 
 > 🏆 **AEROO Space AI Competition 2026** — Space-themed AI startup MVP
 
@@ -23,7 +23,7 @@ Environmental monitoring using satellite data is traditionally:
 - **Slow** — manual analysis takes days per study area
 - **Inaccessible** — not available to small organizations, municipalities, or researchers
 
-**MercuryVision solves this** by democratizing satellite change detection through an AI-first web platform that any user can operate without GIS expertise.
+**Mercury Vision solves this** by democratizing satellite change detection through an AI-first web platform that any user can operate without GIS expertise.
 
 ---
 
@@ -237,7 +237,7 @@ Navigate to http://localhost:8000
 - **Year 3**: 8,000 users × $35 ARPU = $3.4M ARR
 
 ### Competitive Advantages
-| vs Competitor | MercuryVision Advantage |
+| vs Competitor | Mercury Vision Advantage |
 |---------------|------------------------|
 | Google Earth Engine | No coding required, instant AI reports |
 | ESRI ArcGIS | 100× cheaper, web-based, no installation |
@@ -360,13 +360,17 @@ POST /api/projects.php  { "action": "delete_project", "project_id": 1 }
 | Export | html2pdf.js | Client-side PDF generation |
 
 ---
+## Video
+pitch-deck-video-link: https://www.youtube.com/watch?v=8KzXuXTjREE
+pitch-deck: https://docs.google.com/presentation/d/1Y67RxgqyLwOZic4GNlJkDHQM_DLZh9PF/edit?usp=sharing&ouid=106107866272133009499&rtpof=true&sd=true
 
+pitch-deck-link-2: https://docs.google.com/presentation/d/1Y67RxgqyLwOZic4GNlJkDHQM_DLZh9PF/edit?usp=sharing&ouid=106107866272133009499&rtpof=true&sd=true
 ## 👥 Team
 
-**MercuryVision** — AEROO Space AI Competition 2026
+**AIRMAX** — AEROO Space AI Competition 2026
 
 ---
 
 ## 📜 License
 
-Proprietary — MercuryVision Studio. All rights reserved.
+Proprietary — Mercury Vision. All rights reserved.
