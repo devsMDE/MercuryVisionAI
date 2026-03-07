@@ -2,7 +2,15 @@
 /* api/verify.php — Firebase ID token verification */
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
-corsHeaders();
+allow_cors();
+
+function extractBearerToken(): ?string {
+    $authHeader = (string)($_SERVER['HTTP_AUTHORIZATION'] ?? '');
+    if (preg_match('/^Bearer\s+(.+)$/i', $authHeader, $m)) {
+        return trim((string)$m[1]);
+    }
+    return null;
+}
 
 /**
  * PRODUCTION: Use kreait/firebase-php via Composer:
@@ -32,7 +40,7 @@ function verifyFirebaseToken(string $idToken): array {
                 'email' => $claims->get('email', ''),
             ];
         } catch (\Throwable $e) {
-            jsonError('Token verification failed: ' . $e->getMessage(), 401);
+            json_err('Token verification failed: ' . $e->getMessage(), 401);
         }
     }
 
@@ -40,7 +48,7 @@ function verifyFirebaseToken(string $idToken): array {
     /* WARNING: This does NOT verify the signature. Local development only. */
     $parts = explode('.', $idToken);
     if (count($parts) !== 3) {
-        jsonError('Invalid token format', 401);
+        json_err('Invalid token format', 401);
     }
 
     $segment = strtr($parts[1], '-_', '+/');
@@ -51,12 +59,12 @@ function verifyFirebaseToken(string $idToken): array {
     $decoded = base64_decode($segment, true);
     $payload = is_string($decoded) ? json_decode($decoded, true) : null;
     if (!$payload || empty($payload['sub'])) {
-        jsonError('Invalid token payload', 401);
+        json_err('Invalid token payload', 401);
     }
 
     /* Check expiry at minimum */
     if (isset($payload['exp']) && (int)$payload['exp'] < (time() - 120)) {
-        jsonError('Token expired', 401);
+        json_err('Token expired', 401);
     }
 
     error_log('[SECURITY WARNING] Firebase token NOT cryptographically verified. Install kreait/firebase-php for production.');
@@ -73,7 +81,7 @@ if (
     $_SERVER['REQUEST_METHOD'] === 'POST'
 ) {
     $token = extractBearerToken();
-    if (!$token) jsonError('Missing Authorization header', 401);
+    if (!$token) json_err('Missing Authorization header', 401);
     $user = verifyFirebaseToken($token);
-    jsonResponse(['ok' => true, 'uid' => $user['uid'], 'email' => $user['email']]);
+    json_ok(['ok' => true, 'uid' => $user['uid'], 'email' => $user['email']]);
 }

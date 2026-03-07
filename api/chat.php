@@ -3,13 +3,47 @@
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/verify.php';
-corsHeaders();
+
+function getDb() {
+    $dbFile = __DIR__ . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'app.db';
+    $storageDir = dirname($dbFile);
+    if (!is_dir($storageDir) && !mkdir($storageDir, 0775, true) && !is_dir($storageDir)) {
+        json_err('Storage directory unavailable', 500);
+    }
+
+    try {
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            require_once __DIR__ . '/json_db.php';
+            $db = new JsonPdo($dbFile);
+        } else {
+            $db = new PDO('sqlite:' . $dbFile, null, null, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            ]);
+        }
+    } catch (Throwable $e) {
+        json_err('Database connection failed: ' . $e->getMessage(), 500);
+    }
+
+    $db->exec('CREATE TABLE IF NOT EXISTS messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        uid TEXT NOT NULL,
+        role TEXT NOT NULL,
+        content TEXT NOT NULL,
+        analysis_id INTEGER,
+        created_at TEXT DEFAULT (datetime("now"))
+    )');
+
+    return $db;
+}
+
+allow_cors();
 
 $db = getDb();
 
 /* ── Auth ── */
 $token = extractBearerToken();
-if (!$token) jsonError('Missing Authorization header', 401);
+if (!$token) json_err('Missing Authorization header', 401);
 $user = verifyFirebaseToken($token);
 $uid = $user['uid'];
 
@@ -29,14 +63,14 @@ if ($method === 'GET') {
     }
 
     $rows = $stmt->fetchAll();
-    jsonResponse(['ok' => true, 'messages' => $rows]);
+    json_ok(['ok' => true, 'messages' => $rows]);
 }
 
 /* ── POST: send message & get AI response ── */
 if ($method === 'POST') {
-    $body = getJsonBody();
+    $body = read_json_body();
     $content = trim($body['message'] ?? '');
-    if (!$content) jsonError('Message content is required');
+    if (!$content) json_err('Message content is required');
 
     $analysisId = isset($body['analysis_id']) ? (int)$body['analysis_id'] : null;
     $mode = trim($body['mode'] ?? 'general');
@@ -53,14 +87,14 @@ if ($method === 'POST') {
     $stmt = $db->prepare('INSERT INTO messages (uid, role, content, analysis_id) VALUES (?, ?, ?, ?)');
     $stmt->execute([$uid, 'ai', $aiResponse, $analysisId]);
 
-    jsonResponse([
+    json_ok([
         'ok' => true,
         'reply' => $aiResponse,
         'mode' => $mode
     ]);
 }
 
-jsonError('Method not allowed', 405);
+json_err('Method not allowed', 405);
 
 /* ── AI Response Generator (placeholder) ── */
 function generateAIResponse(string $message, string $mode, string $context): string {
