@@ -1,0 +1,19 @@
+[Sat Mar  7 14:23:02 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Sat Mar  7 14:23:10 2026] [::1]:59734 Accepted
+[Sat Mar  7 14:23:10 2026] [::1]:59734 [200]: POST /api/session.php
+[Sat Mar  7 14:23:10 2026] [::1]:59734 Closing
+[Sat Mar  7 14:23:43 2026] [::1]:35032 Accepted
+[Sat Mar  7 14:23:43 2026] PHP Fatal error:  Uncaught Error: Call to undefined function corsHeaders() in /app/api/verify.php:5
+Stack trace:
+#0 /app/api/chat.php(5): require_once()
+#1 {main}
+  thrown in /app/api/verify.php on line 5
+[Sat Mar  7 14:23:43 2026] [::1]:35032 [500]: GET /api/chat.php - Uncaught Error: Call to undefined function corsHeaders() in /app/api/verify.php:5
+Stack trace:
+#0 /app/api/chat.php(5): require_once()
+#1 {main}
+  thrown in /app/api/verify.php on line 5
+[Sat Mar  7 14:23:43 2026] [::1]:35032 Closing
+[Sat Mar  7 14:30:17 2026] [::1]:34692 Accepted
+[Sat Mar  7 14:30:17 2026] [::1]:34692 [401]: GET /api/chat.php
+[Sat Mar  7 14:30:17 2026] [::1]:34692 Closing
