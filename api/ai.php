@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+if (!defined('PHPUNIT_RUNNING')) {
+
 require_once __DIR__ . '/session.php';
 
 if (strtoupper((string)($_SERVER['REQUEST_METHOD'] ?? 'GET')) !== 'POST') {
@@ -338,6 +340,8 @@ if ($isLocalFallback) {
 
 json_ok($gated);
 
+}
+
 function plan_config(string $plan): array
 {
     return match ($plan) {
@@ -454,7 +458,11 @@ function normalize_string_list($value): array
     }
     $out = [];
     foreach ($value as $item) {
-        $out[] = (string)$item;
+        if (is_array($item)) {
+            $out[] = json_encode($item, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        } else {
+            $out[] = (string)$item;
+        }
     }
     return $out;
 }
